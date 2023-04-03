@@ -1,0 +1,116 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.right {
+  background-color: #252425;
+  border-left: 20px solid orange;
+}
+
+.calculator {
+  text-align: center;
+  justify-content: center;
+  width: 400px;
+  background-color: #252425;
+  border: 20px solid #252525;
+}
+
+.calculator-screen {
+  width: 100%;
+  height: 100px;
+  color: #fff;
+  text-align: right;
+  font-size: 36px;
+  border: none;
+  box-sizing: border-box;
+  padding: 30px 20px;
+  background-color: #444;
+  margin: 5px 0px 10px 0px;
+  box-shadow: inset 0px 0px 10px 1px #222;
+}
+.screen-text{
+  width: 100%;
+  color: #000;
+  text-align: right;
+  font-size: 20px;
+  border: none;
+  box-sizing: border-box;
+  padding:  15px  20px 15px 20px ;
+  background-color: orange;
+  margin: 0px 0px 10px 0px;
+  box-shadow: inset 0px 0px 10px 1px rgb(117, 76, 1);
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.calculator-keys {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+}
+
+button {
+  height: 80px;
+  border: 1px solid black;
+  width: 25%;
+  color: #fff;
+  font-size: 26px;
+  background-color: #2f2f2f;
+  border: #000 1px solid;
+  border-radius: 5px;
+  box-shadow: inset rgba(255, 255, 255, 0.1) 0px 1px 0px, inset rgba(0, 0, 0, 0.2) 0px -2px 2px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.all-clear,
+.equal-sign {
+  width: 50%;
+}
+
+.operator,
+.equal-sign {
+  background-color: orange;
+}
+
+.percentage,
+.all-clear{
+  background-color:#444
+}
+button:hover {
+  box-shadow: inset rgba(0, 0, 0, 0.5) 0px 2px 8px;
+  background-image:  linear-gradient(top, #2f2f2f 0%, #363636 100%);
+}
+
+.operator:hover,
+.equal-sign:hover {
+  box-shadow: inset rgba(0, 0, 0, 0.5) 0px 2px 8px;
+  background-image:  linear-gradient(top, #2f2f2f 0%, #363636 100%);
+}
+
+button:focus {
+  box-shadow: inset rgba(0, 0, 0, 0.5) 0px 2px 8px;
+  background-image:  linear-gradient(top, #2f2f2f 0%, #363636 100%);
+
+}
+.button-clicked {
+     box-shadow: inset rgb(0, 0, 0) 0px 2px 8px;
+  background-image:  linear-gradient(top, #2f2f2f 0%, #363636 100%);
+    }

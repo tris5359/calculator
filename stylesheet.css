@@ -35,13 +35,15 @@ body {
   height: 100px;
   color: #fff;
   text-align: right;
-  font-size: 36px;
+  font-size: 40px;
   border: none;
   box-sizing: border-box;
   padding: 30px 20px;
   background-color: #444;
-  margin: 5px 0px 10px 0px;
+  margin: 0px 0px 10px 0px;
   box-shadow: inset 0px 0px 10px 1px #222;
+  transition-duration: 500ms;
+
 }
 .screen-text{
   width: 100%;
@@ -52,10 +54,11 @@ body {
   box-sizing: border-box;
   padding:  15px  20px 15px 20px ;
   background-color: orange;
-  margin: 0px 0px 10px 0px;
+  /* margin: 0px 0px 10px 0px; */
   box-shadow: inset 0px 0px 10px 1px rgb(117, 76, 1);
   overflow: hidden;
   word-wrap: break-word;
+  transition-duration: 500ms;
 }
 
 .calculator-keys {
@@ -114,3 +117,12 @@ button:focus {
      box-shadow: inset rgb(0, 0, 0) 0px 2px 8px;
   background-image:  linear-gradient(top, #2f2f2f 0%, #363636 100%);
     }
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+}
+
+.animate-flicker {
+    animation: fadeIn 300ms infinite alternate;
+}

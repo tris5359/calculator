@@ -12,11 +12,11 @@ const updateScreen = (number) => {
     calculatorScreen.value = number;
 
     if (calculatorScreen.value.length > 10 && calculatorScreen.value.length <= 14) {
-        calculatorScreen.style.fontSize = "2em";
+        calculatorScreen.style.fontSize = "32px";
     } else if (calculatorScreen.value.length > 14) {
-        calculatorScreen.style.fontSize = "1.8em";
+        calculatorScreen.style.fontSize = "26px";
     } else {
-        calculatorScreen.style.fontSize = "2.5em";
+        calculatorScreen.style.fontSize = "40px";
     }
 };
 
@@ -38,8 +38,6 @@ const inputNumber = (number) => {
     }
 };
 
-
-
 numbers.forEach((number) => {
     number.addEventListener("click", (event) => {
         //console.log(event.target.value)
@@ -58,8 +56,13 @@ operators.forEach((operator) => {
         if (event.target.value === "%") {
             calculate();
             updateScreen(currentNumber);
+            updateSecScreenText(currentNumber);
+    secScreenInput = "";
+
+        } else {
+            updateSecScreenText(event.target.value);
+
         }
-        updateSecScreenText(event.target.value);
 
     });
 });
@@ -99,9 +102,6 @@ const calculate = () => {
             case "/":
                 result = parseFloat(prevNumber) / parseFloat(currentNumber);
                 break;
-            case "%":
-                result = parseFloat(prevNumber) / parseFloat(100);
-                break;
             case "+":
                 result = parseFloat(prevNumber) + parseFloat(currentNumber);
                 break;
@@ -112,6 +112,14 @@ const calculate = () => {
                 return;
         }
         currentNumber = result;
+    } else {
+        if (calculationOperator == "%") {
+            result = parseFloat(prevNumber) / parseFloat(100);
+            console.log(result)
+        }
+        currentNumber = result;
+    secScreenInput = "";
+
     }
     afterOperation = true;
     calculationOperator = "";
@@ -129,7 +137,7 @@ const claerAll = () => {
     prevNumber = "";
     calculationOperator = "";
     currentNumber = "0";
-    screenText.textContent = "";
+    screenText.textContent = "_";
     secScreenInput = "";
 };
 
@@ -152,20 +160,21 @@ inputDecimal = (dot) => {
 
 
 // keyword enter:
-    let btns = document.querySelectorAll('button');
+let btns = document.querySelectorAll('button');
 
-    document.addEventListener("keyup", function (event) {
-        if (event.keyCode != 13) {
-            for (var i = 0; i < btns.length; i++) {
-                var id = btns[i].getAttribute("data-id");
-                if (id == event.key) {
-                    btns[i].click();
-                    btns[i].classList.toggle('button-clicked');
-                }else{
-                    btns[i].classList.remove('button-clicked');
-                }
+document.addEventListener("keyup", function (event) {
+    if (event.keyCode != 13) {
+        for (var i = 0; i < btns.length; i++) {
+            var id = btns[i].getAttribute("data-id");
+            if (id == event.key) {
+                btns[i].click();
+                btns[i].classList.toggle('button-clicked');
+            } else {
+                btns[i].classList.remove('button-clicked');
             }
-        } else {
-            document.getElementById("equal").click();
         }
-    }, false);
+    } else {
+        equalSign.click();
+        equalSign.classList.toggle('button-clicked');
+    }
+}, false);
